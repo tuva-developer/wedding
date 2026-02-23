@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 800px at 20% 10%, #ffffff 0%, #f4f2ee 40%, #f0ede7 100%),
+      linear-gradient(90deg, #ffffff 0%, #f7f5f0 100%);
+    color: #1f1f1f;
+    font-family: 'Nunito', system-ui, -apple-system, Segoe UI, sans-serif;
+    letter-spacing: 0.2px;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    height: 6px;
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+  }
+  .no-scrollbar {
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@keyframes sealPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
