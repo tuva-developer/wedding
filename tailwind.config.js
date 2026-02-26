@@ -6,7 +6,7 @@ export default {
       fontFamily: {
         work: ['"Nunito"', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
         playfair: ['"Playfair Display"', 'serif'],
-        vibes: ['"Great Vibes"', 'cursive']
+        vibes: ['"Pinyon Script"', 'cursive']
       },
       boxShadow: {
         card: '0 24px 80px rgba(0, 0, 0, 0.12)'

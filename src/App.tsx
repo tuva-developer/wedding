@@ -13,15 +13,26 @@ const flowerBottomRight =
   '/imgs/thiep-thanh-dat-element_0019_15-20251010160529-kgwqz.png'
 const waxSeal =
   '/imgs/thiep-thanh-dat-element_0020_14-20251010160528-z-man.png'
-const baseGallery = [
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141503-20260130071514-cjwvh.png',
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141905-20260130071947-jqcxf.png',
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141318-20260130071408-ftszz.png',
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141724-20260130071739-yjtom.png',
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141213-20260130071226-l8d26.png',
-  '/imgs/anh-chup-man-hinh-2026-01-30-luc-141021-20260130071059-jewfu.png'
+const gallery = [
+  '/images/z7561870183143_b9eab5aec3257f07fa33ca3183443b84.jpg',
+  '/images/z7561870185620_0fca0b9e720bdfea9502a91f273e7e31.jpg',
+  '/images/z7561870190071_5e6e98404ee3fad9b2cb59f714806a16.jpg',
+  '/images/z7561870208113_8bca0d149b2f25a52d515bbf1052796f.jpg',
+  '/images/z7561870224812_141706f60582a61d83f792d6ad8b91b0.jpg',
+  '/images/z7561885287882_b977f479c3d8145c3729fc060f945426.jpg',
+  '/images/z7561885297161_d70cf8646744884ddeab49ac3a1dc342.jpg',
+  '/images/z7561885299236_fbebefbc75bff0517fc549ededb8b47d.jpg',
+  '/images/z7561885308412_57f6cb806ad140cdd70af5390138ad39.jpg',
+  '/images/z7561885316340_48da5993cfa978ab0259a13c8ec8e4a4.jpg',
+  '/images/z7561885333059_28defe6f502a375961cd4b3a253e9e1f.jpg',
+  '/images/z7561885334313_e94d2df5bd429bb694abe7bbe314d815.jpg',
+  '/images/z7561885340175_895ef89a95189dc68e672c4d578676ed.jpg',
+  '/images/z7561885349748_0c6d99c4cef74af922b676304a3666bd.jpg',
+  '/images/z7561885362838_29025423b9d36bb2ab735490353bf22d.jpg',
+  '/images/z7561885365294_0af9a5af5c4421131199639dbb904763.jpg',
+  '/images/z7561885373851_f62ee96853f0fbe213040ee544448f22.jpg',
+  '/images/z7561885376753_6c3951304d4cbade3e587bae3c08c2ee.jpg',
 ]
-const gallery = [...baseGallery, ...baseGallery, ...baseGallery]
 
 export default function App() {
   const [phase, setPhase] = useState('closed')

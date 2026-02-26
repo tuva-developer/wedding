@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-vibes: "Pinyon Script", cursive;
+  --font-playfair: "Playfair Display", serif;
+  --font-work: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
 @layer base {
   * {
     box-sizing: border-box;

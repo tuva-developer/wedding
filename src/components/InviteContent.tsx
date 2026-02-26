@@ -1,40 +1,44 @@
-import { useEffect, useState } from 'react'
-import { FiChevronLeft, FiChevronRight, FiMapPin } from 'react-icons/fi'
+import { useEffect, useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 type InviteContentProps = {
-  phase: string
-  gallery: string[]
-}
+  phase: string;
+  gallery: string[];
+};
 
-const WEDDING_DATE = new Date('2025-10-25T17:30:00')
+const WEDDING_DATE = new Date("2026-02-27T10:30:00");
 
 function calcTimeLeft(target: Date) {
-  const diff = target.getTime() - Date.now()
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  const diff = target.getTime() - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
-  }
+  };
 }
 
-function OctoberCalendar() {
-  // Oct 1, 2025 = Wednesday → index 3 (0=Sun)
-  const headers = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7']
-  const cells: (number | null)[] = []
-  for (let i = 0; i < 3; i++) cells.push(null)
-  for (let d = 1; d <= 31; d++) cells.push(d)
+function FebruaryCalendar() {
+  // Feb 1, 2026 = Sunday → index 0 (0=Sun)
+  const headers = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
+  const cells: (number | null)[] = [];
+  for (let d = 1; d <= 28; d++) cells.push(d);
 
   return (
     <div className="max-w-[310px] mx-auto rounded-2xl overflow-hidden border border-[#ddd6ca] shadow-sm">
       <div className="bg-[#52613e] py-3 text-center">
-        <p className="font-playfair text-white text-[15px] tracking-wide">Tháng Mười · 2025</p>
+        <p className="font-playfair text-white text-[15px] tracking-wide">
+          Tháng Hai · 2026
+        </p>
       </div>
       <div className="bg-white p-4">
         <div className="grid grid-cols-7 mb-1">
           {headers.map((h) => (
-            <div key={h} className="text-center text-[10px] font-semibold text-[#52613e]/50 py-1">
+            <div
+              key={h}
+              className="text-center text-[10px] font-semibold text-[#52613e]/50 py-1"
+            >
               {h}
             </div>
           ))}
@@ -42,10 +46,12 @@ function OctoberCalendar() {
         <div className="grid grid-cols-7 gap-y-1">
           {cells.map((d, i) => (
             <div key={i} className="flex items-center justify-center h-8">
-              {d === 25 ? (
+              {d === 27 ? (
                 <div className="relative w-8 h-8 rounded-full bg-[#52613e] flex items-center justify-center">
                   <span className="text-white text-[11px] font-bold">{d}</span>
-                  <span className="absolute -top-1.5 -right-1 text-[9px] text-red-400 leading-none">♥</span>
+                  <span className="absolute -top-1.5 -right-1 text-[9px] text-red-400 leading-none">
+                    ♥
+                  </span>
                 </div>
               ) : d ? (
                 <span className="text-[11px] text-[#3b3b30]/65 w-8 h-8 flex items-center justify-center rounded-full">
@@ -56,24 +62,27 @@ function OctoberCalendar() {
           ))}
         </div>
         <p className="text-center text-[10px] text-[#52613e]/60 mt-3 tracking-wider">
-          THỨ BẢY · 25/10/2025 · 17:30
+          THỨ SÁU · 27/02/2026 · 10:30
         </p>
       </div>
     </div>
-  )
+  );
 }
 
 const FloatingHearts = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-    {([
-      { left: '8%', delay: '0s', size: 11 },
-      { left: '20%', delay: '0.7s', size: 8 },
-      { left: '35%', delay: '1.4s', size: 13 },
-      { left: '50%', delay: '0.3s', size: 9 },
-      { left: '65%', delay: '1.1s', size: 11 },
-      { left: '78%', delay: '0.6s', size: 8 },
-      { left: '90%', delay: '1.8s', size: 12 },
-    ]).map(({ left, delay, size }, i) => (
+  <div
+    className="absolute inset-0 overflow-hidden pointer-events-none"
+    aria-hidden
+  >
+    {[
+      { left: "8%", delay: "0s", size: 11 },
+      { left: "20%", delay: "0.7s", size: 8 },
+      { left: "35%", delay: "1.4s", size: 13 },
+      { left: "50%", delay: "0.3s", size: 9 },
+      { left: "65%", delay: "1.1s", size: 11 },
+      { left: "78%", delay: "0.6s", size: 8 },
+      { left: "90%", delay: "1.8s", size: 12 },
+    ].map(({ left, delay, size }, i) => (
       <span
         key={i}
         className="absolute bottom-[12%] text-[#c5bcab] select-none"
@@ -88,7 +97,7 @@ const FloatingHearts = () => (
       </span>
     ))}
   </div>
-)
+);
 
 const Divider = () => (
   <div className="flex items-center justify-center gap-3 my-1">
@@ -96,34 +105,39 @@ const Divider = () => (
     <span className="text-[#c5bcab] text-sm">♥</span>
     <div className="h-px w-14 bg-[#c5bcab]" />
   </div>
-)
+);
 
 const InviteContent = ({ phase, gallery }: InviteContentProps) => {
-  const isOpening = phase === 'opening'
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const totalSlides = gallery.length
-  const thumbsPerView = 6
-  const lastStart = Math.max(0, totalSlides - thumbsPerView)
+  const isOpening = phase === "opening";
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = gallery.length;
+  const thumbsPerView = 6;
+  const lastStart = Math.max(0, totalSlides - thumbsPerView);
   const thumbStart = Math.min(
     Math.floor(currentSlide / thumbsPerView) * thumbsPerView,
     lastStart,
-  )
-  const visibleThumbs = gallery.slice(thumbStart, thumbStart + thumbsPerView)
-  const goPrev = () => setCurrentSlide((p) => (p - 1 + totalSlides) % totalSlides)
-  const goNext = () => setCurrentSlide((p) => (p + 1) % totalSlides)
-  const goThumbPrev = () => setCurrentSlide((p) => (p - 1 + totalSlides) % totalSlides)
-  const goThumbNext = () => setCurrentSlide((p) => (p + 1) % totalSlides)
+  );
+  const visibleThumbs = gallery.slice(thumbStart, thumbStart + thumbsPerView);
+  const goPrev = () =>
+    setCurrentSlide((p) => (p - 1 + totalSlides) % totalSlides);
+  const goNext = () => setCurrentSlide((p) => (p + 1) % totalSlides);
+  const goThumbPrev = () =>
+    setCurrentSlide((p) => (p - 1 + totalSlides) % totalSlides);
+  const goThumbNext = () => setCurrentSlide((p) => (p + 1) % totalSlides);
 
-  const [countdown, setCountdown] = useState(() => calcTimeLeft(WEDDING_DATE))
+  const [countdown, setCountdown] = useState(() => calcTimeLeft(WEDDING_DATE));
   useEffect(() => {
-    const id = setInterval(() => setCountdown(calcTimeLeft(WEDDING_DATE)), 1000)
-    return () => clearInterval(id)
-  }, [])
+    const id = setInterval(
+      () => setCountdown(calcTimeLeft(WEDDING_DATE)),
+      1000,
+    );
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div
       className={`w-full relative ${
-        isOpening ? 'animate-openFadeSlow' : 'animate-openFade'
+        isOpening ? "animate-openFadeSlow" : "animate-openFade"
       } overflow-hidden rounded-[28px] border border-[#e8e2d8] shadow-card bg-white`}
     >
       {/* ── 1. HERO ─────────────────────────────────────── */}
@@ -151,7 +165,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
         </h1>
         <Divider />
         <p className="relative z-[2] mt-4 text-[12px] italic text-[#52613e]/65 max-w-[260px] leading-relaxed">
-          "Khi mây mù tan hết, anh yêu em và cả thế gian đều biết"
+          &ldquo;Khi mây mù tan hết, anh yêu em và cả thế gian đều biết&rdquo;
         </p>
       </section>
 
@@ -181,27 +195,14 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
             Kính mời tham dự tiệc chung vui của gia đình chúng tôi
           </p>
 
-          <div className="grid grid-cols-2 gap-4 text-[12px]">
-            <div className="grid gap-1.5">
-              <p className="uppercase text-[10px] tracking-widest font-semibold text-[#52613e]/60 mb-0.5">
-                Nhà trai
-              </p>
-              <p>Ông. Nguyễn Hùng Vương</p>
-              <p>Bà. Trần Thị Bích Phương</p>
-            </div>
-            <div className="grid gap-1.5">
-              <p className="uppercase text-[10px] tracking-widest font-semibold text-[#52613e]/60 mb-0.5">
-                Nhà gái
-              </p>
-              <p>Ông. Lưu Chí Hiếu</p>
-              <p>Bà. Nguyễn Ngọc Ánh</p>
-            </div>
-          </div>
-
           <div>
-            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">Thành Đạt</p>
+            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">
+              Kiều Anh
+            </p>
             <Divider />
-            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">Minh Hạ</p>
+            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">
+              Văn Mẫn
+            </p>
           </div>
         </div>
       </section>
@@ -210,20 +211,24 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       <section className="relative overflow-hidden">
         <img
           className="w-full block"
-          src="/imgs/anh-chup-man-hinh-2026-01-30-luc-141318-20260130071408-ftszz.png"
+          src="/images/z7561870183143_b9eab5aec3257f07fa33ca3183443b84.jpg"
         />
         <div className="absolute inset-x-0 bottom-0 px-6 py-10 bg-gradient-to-t from-black/55 to-transparent text-white text-center">
-          <p className="text-[11px] tracking-[3px] uppercase opacity-85">All of me loves</p>
-          <p className="mt-1 font-vibes text-[clamp(28px,6vw,40px)]">all of you</p>
+          <p className="text-[11px] tracking-[3px] uppercase opacity-85">
+            All of me loves
+          </p>
+          <p className="mt-1 font-vibes text-[clamp(28px,6vw,40px)]">
+            all of you
+          </p>
         </div>
       </section>
 
       {/* ── 5. LOVE QUOTE ────────────────────────────────── */}
       <section className="py-10 px-8 text-center bg-[#f5f1ea] border-y border-[#e5ddd0]">
         <p className="font-playfair text-[clamp(16px,3.5vw,21px)] italic text-[#3b3b30] leading-[1.7]">
-          "I love three things in this world.
+          &ldquo;I love three things in this world.
           <br />
-          Sun, moon and you."
+          Sun, moon and you.&rdquo;
         </p>
         <Divider />
         <p className="mt-4 text-[11px] text-[#52613e]/65 leading-[1.8]">
@@ -238,14 +243,16 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
         <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-2">
           Đếm ngược đến ngày cưới
         </p>
-        <p className="font-playfair text-[16px] text-[#52613e] mb-7">25 · 10 · 2025</p>
+        <p className="font-playfair text-[16px] text-[#52613e] mb-7">
+          27 · 02 · 2026
+        </p>
         <div className="grid grid-cols-4 gap-2.5">
           {(
             [
-              { value: countdown.days, label: 'Ngày' },
-              { value: countdown.hours, label: 'Giờ' },
-              { value: countdown.minutes, label: 'Phút' },
-              { value: countdown.seconds, label: 'Giây' },
+              { value: countdown.days, label: "Ngày" },
+              { value: countdown.hours, label: "Giờ" },
+              { value: countdown.minutes, label: "Phút" },
+              { value: countdown.seconds, label: "Giây" },
             ] as const
           ).map(({ value, label }) => (
             <div
@@ -253,9 +260,11 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
               className="border border-[#e5ddd0] rounded-2xl py-4 px-1 bg-[#faf8f4] grid gap-1"
             >
               <strong className="text-[clamp(20px,4.5vw,28px)] text-[#52613e] font-playfair leading-none block">
-                {String(value).padStart(2, '0')}
+                {String(value).padStart(2, "0")}
               </strong>
-              <span className="text-[10px] text-[#52613e]/55 uppercase tracking-wider">{label}</span>
+              <span className="text-[10px] text-[#52613e]/55 uppercase tracking-wider">
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -266,7 +275,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
         <p className="text-center text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-6">
           Ngày trọng đại
         </p>
-        <OctoberCalendar />
+        <FebruaryCalendar />
       </section>
 
       {/* ── 8. WEDDING DETAILS ──────────────────────────── */}
@@ -285,33 +294,29 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <span className="font-playfair text-[clamp(52px,10vw,72px)] leading-none">25</span>
+            <span className="font-playfair text-[clamp(52px,10vw,72px)] leading-none">
+              27
+            </span>
             <div className="text-left">
-              <p className="font-playfair text-[16px] font-medium">Tháng 10</p>
-              <p className="text-[13px] text-[#52613e]/80">Năm 2025</p>
+              <p className="font-playfair text-[16px] font-medium">Tháng 2</p>
+              <p className="text-[13px] text-[#52613e]/80">Năm 2026</p>
             </div>
           </div>
 
-          <p className="font-playfair text-[15px] font-medium">17:30 · Thứ Bảy</p>
-          <p className="text-[11px] text-[#52613e]/60">(Tức ngày 05 tháng 09 năm Ất Tỵ)</p>
+          <p className="font-playfair text-[15px] font-medium">
+            10:30 · Thứ Sáu
+          </p>
+          <p className="text-[11px] text-[#52613e]/60">
+            (Nhằm ngày 09 tháng 02 năm Bính Ngọ)
+          </p>
 
           <Divider />
 
           <div className="grid gap-2 text-[13px]">
-            <p className="text-[10px] tracking-widest uppercase text-[#52613e]/55">Tổ chức tại</p>
-            <strong className="text-[15px]">The Opera Wedding & Convention Center</strong>
-            <span className="text-[12px] text-[#52613e]/70">
-              Lô 18A Lê Hồng Phong, Kiêu Sơn, Hải An, Hải Phòng
-            </span>
-            <a
-              href="https://maps.app.goo.gl/doSwnXX7kwrr3CW58"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 border border-[#52613e] text-[#52613e] px-5 py-2 rounded-full text-[12px] mx-auto mt-1 transition-colors hover:bg-[#52613e] hover:text-white"
-            >
-              <FiMapPin size={12} />
-              Chỉ đường
-            </a>
+            <p className="text-[10px] tracking-widest uppercase text-[#52613e]/55">
+              Tổ chức tại
+            </p>
+            <strong className="text-[15px]">Ấp 6B</strong>
           </div>
         </div>
       </section>
@@ -320,27 +325,32 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       <section className="relative overflow-hidden">
         <img
           className="w-full block brightness-[0.75]"
-          src="/imgs/anh-chup-man-hinh-2026-01-30-luc-141905-20260130071947-jqcxf.png"
+          src="/images/z7561885376753_6c3951304d4cbade3e587bae3c08c2ee.jpg"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-8 text-center">
-          <p className="text-[10px] tracking-[4px] uppercase opacity-75 mb-3">Câu chuyện</p>
+          <p className="text-[10px] tracking-[4px] uppercase opacity-75 mb-3">
+            Câu chuyện
+          </p>
           <p className="font-playfair text-[clamp(14px,3vw,18px)] italic leading-[1.8] max-w-[300px]">
-            Tình yêu của anh và em là một hành trình kỳ diệu, vượt qua bao thử thách để cùng nhau
-            bước đến ngày trọng đại – đám cưới của chúng mình.
+            Tình yêu của anh và em là một hành trình kỳ diệu, vượt qua bao thử
+            thách để cùng nhau bước đến ngày trọng đại – đám cưới của chúng
+            mình.
           </p>
         </div>
       </section>
 
       {/* ── 10. TIMELINE + DRESSCODE ─────────────────────── */}
       <section className="py-10 px-6 text-center text-[#52613e]">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-7">Chương trình</p>
+        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-7">
+          Chương trình
+        </p>
         <div className="grid grid-cols-2 gap-6 max-w-xs mx-auto">
           <div className="grid gap-2.5 place-items-center">
             <img
               className="w-14"
               src="/imgs/thiep-thanh-dat-element_0006_28-20251010165559-ejurh.png"
             />
-            <p className="font-playfair text-[20px] leading-none">17:30</p>
+            <p className="font-playfair text-[20px] leading-none">10:30</p>
             <span className="text-[11px] text-[#52613e]/65">Đón khách</span>
           </div>
           <div className="grid gap-2.5 place-items-center">
@@ -348,13 +358,15 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
               className="w-14"
               src="/imgs/thiep-thanh-dat-element_0005_29-20251010165559-b9jp9.png"
             />
-            <p className="font-playfair text-[20px] leading-none">19:00</p>
-            <span className="text-[11px] text-[#52613e]/65">Khai tiệc</span>
+            <p className="font-playfair text-[20px] leading-none">11:00</p>
+            <span className="text-[11px] text-[#52613e]/65">Đãi khách</span>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-[#e5ddd0]">
-          <p className="text-[10px] tracking-[3px] uppercase text-[#52613e]/55 mb-3">Dresscode</p>
+          <p className="text-[10px] tracking-[3px] uppercase text-[#52613e]/55 mb-3">
+            Dresscode
+          </p>
           <div className="flex justify-center gap-5">
             <div className="flex flex-col items-center gap-1.5">
               <span className="w-7 h-7 rounded-full bg-[#e6dbc8] border border-[#d4c9b5] block" />
@@ -413,7 +425,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
               type="button"
               onClick={() => setCurrentSlide(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === currentSlide ? 'w-5 bg-[#52613e]' : 'w-2 bg-[#c5bcab]'
+                i === currentSlide ? "w-5 bg-[#52613e]" : "w-2 bg-[#c5bcab]"
               }`}
               aria-label={`Chuyển đến ảnh ${i + 1}`}
             />
@@ -431,7 +443,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           </button>
           <div className="flex items-center gap-1.5">
             {visibleThumbs.map((src, index) => {
-              const realIndex = thumbStart + index
+              const realIndex = thumbStart + index;
               return (
                 <button
                   key={`thumb-${src}-${realIndex}`}
@@ -439,8 +451,8 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
                   onClick={() => setCurrentSlide(realIndex)}
                   className={`rounded-[8px] border-2 transition-all ${
                     realIndex === currentSlide
-                      ? 'border-[#52613e]'
-                      : 'border-transparent'
+                      ? "border-[#52613e]"
+                      : "border-transparent"
                   }`}
                   aria-label={`Chọn ảnh ${realIndex + 1}`}
                 >
@@ -450,7 +462,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
                     alt=""
                   />
                 </button>
-              )
+              );
             })}
           </div>
           <button
@@ -516,19 +528,23 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
 
       {/* ── 13. THANK YOU ───────────────────────────────── */}
       <section className="py-12 px-8 text-center bg-[#f5f1ea] border-t border-[#e5ddd0]">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-4">Cảm ơn bạn</p>
-        <p className="font-vibes text-[clamp(32px,6vw,46px)] text-[#52613e] mb-4">Thank you!</p>
+        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-4">
+          Cảm ơn bạn
+        </p>
+        <p className="font-vibes text-[clamp(32px,6vw,46px)] text-[#52613e] mb-4">
+          Thank you!
+        </p>
         <p className="text-[12px] text-[#52613e]/75 leading-[1.9] max-w-sm mx-auto">
-          Cảm ơn bạn đã dành tình cảm cho chúng mình. Sự hiện diện của bạn chính là món quà ý
-          nghĩa nhất trong ngày trọng đại này.
+          Cảm ơn bạn đã dành tình cảm cho chúng mình. Sự hiện diện của bạn chính
+          là món quà ý nghĩa nhất trong ngày trọng đại này.
         </p>
         <Divider />
         <p className="mt-4 font-vibes text-[clamp(22px,5vw,30px)] text-[#52613e]/60">
-          Thành Đạt & Minh Hạ
+          Kiều Anh ♥ Văn Mẫn
         </p>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default InviteContent
+export default InviteContent;
