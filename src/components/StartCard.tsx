@@ -19,7 +19,7 @@ const StartCard = ({
   envelopeImg,
   flowerTopLeft,
   flowerBottomRight,
-  waxSeal
+  waxSeal,
 }: StartCardProps) => {
   const isOpening = phase === 'opening'
   return (
@@ -32,16 +32,30 @@ const StartCard = ({
         src={paperTexture}
         alt=""
       />
-      <div className="absolute inset-0 grid place-items-center gap-[18px] px-[24px] pt-[42px] pb-[32px] text-center text-[#6b6b5f] max-[720px]:px-[18px] max-[720px]:pt-[34px] max-[720px]:pb-[26px]">
-        <div className="grid gap-2">
-          <p className="m-0 mb-[6px] uppercase tracking-[2px] text-[13px]">
-            Trân trọng kính mời:
+
+      <div className="absolute inset-0 grid place-items-center gap-[18px] px-[24px] pt-[42px] pb-[32px] text-center max-[720px]:px-[18px] max-[720px]:pt-[34px] max-[720px]:pb-[26px]">
+
+        {/* Lời mời + tên đôi uyên ương */}
+        <div className="grid gap-3">
+          <p className="m-0 uppercase tracking-[3px] text-[11px] text-black/50">
+            Trân trọng kính mời
           </p>
-          <h2 className="m-0 font-playfair text-[clamp(22px,3.4vw,30px)] font-[500] text-[#6b7a5c]">
-            Anh Minh & gia đình
-          </h2>
+          <div>
+            <p className="font-vibes text-[clamp(30px,5vw,42px)] leading-[1.1] text-[#111]">
+              Kiều Anh
+            </p>
+            <div className="flex items-center justify-center gap-2 my-1">
+              <div className="h-px w-10 bg-[#c0392b]/30" />
+              <span className="text-[#c0392b] text-xs">♥</span>
+              <div className="h-px w-10 bg-[#c0392b]/30" />
+            </div>
+            <p className="font-vibes text-[clamp(30px,5vw,42px)] leading-[1.1] text-[#111]">
+              Văn Mẫn
+            </p>
+          </div>
         </div>
 
+        {/* Phong bì */}
         <div className="relative w-[min(360px,70vw)] aspect-[4/3] grid place-items-center">
           <img
             className="w-full h-auto drop-shadow-[0_12px_28px_rgba(0,0,0,0.15)]"
@@ -59,20 +73,27 @@ const StartCard = ({
             alt="Con dấu"
           />
           <img
-            className="absolute w-[min(140px,26vw)] top-[-10%] left-[-8%]"
+            className="absolute w-[min(140px,26vw)] top-[-10%] left-[-8%] opacity-60"
             src={flowerTopLeft}
-            alt="Hoa"
+            alt=""
           />
           <img
-            className="absolute w-[min(140px,26vw)] bottom-[-44%] right-[-16%]"
+            className="absolute w-[min(140px,26vw)] bottom-[-44%] right-[-16%] opacity-60"
             src={flowerBottomRight}
-            alt="Hoa"
+            alt=""
           />
         </div>
 
-        <div className="font-playfair text-[clamp(20px,3.2vw,28px)] tracking-[2px] text-[#7a7a66]">
-          25.10.2025
+        {/* Ngày cưới */}
+        <div>
+          <p className="font-playfair text-[clamp(20px,3.2vw,28px)] tracking-[2px] text-[#c0392b]">
+            27.03.2026
+          </p>
+          <p className="text-[11px] tracking-[2px] text-black/45 mt-1">
+            10:30 · Thứ Sáu · Ấp 6B
+          </p>
         </div>
+
       </div>
     </button>
   )

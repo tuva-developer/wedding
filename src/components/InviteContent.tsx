@@ -6,7 +6,7 @@ type InviteContentProps = {
   gallery: string[];
 };
 
-const WEDDING_DATE = new Date("2026-02-27T10:30:00");
+const WEDDING_DATE = new Date("2026-03-27T10:30:00");
 
 function calcTimeLeft(target: Date) {
   const diff = target.getTime() - Date.now();
@@ -19,17 +19,17 @@ function calcTimeLeft(target: Date) {
   };
 }
 
-function FebruaryCalendar() {
-  // Feb 1, 2026 = Sunday → index 0 (0=Sun)
+function MarchCalendar() {
+  // March 1, 2026 = Sunday → index 0 (0=Sun)
   const headers = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
   const cells: (number | null)[] = [];
-  for (let d = 1; d <= 28; d++) cells.push(d);
+  for (let d = 1; d <= 31; d++) cells.push(d);
 
   return (
-    <div className="max-w-[310px] mx-auto rounded-2xl overflow-hidden border border-[#ddd6ca] shadow-sm">
-      <div className="bg-[#52613e] py-3 text-center">
+    <div className="max-w-[310px] mx-auto rounded-2xl overflow-hidden border border-[#e0e0e0] shadow-sm">
+      <div className="bg-[#c0392b] py-3 text-center">
         <p className="font-playfair text-white text-[15px] tracking-wide">
-          Tháng Hai · 2026
+          Tháng Ba · 2026
         </p>
       </div>
       <div className="bg-white p-4">
@@ -37,7 +37,7 @@ function FebruaryCalendar() {
           {headers.map((h) => (
             <div
               key={h}
-              className="text-center text-[10px] font-semibold text-[#52613e]/50 py-1"
+              className="text-center text-[10px] font-semibold text-black/40 py-1"
             >
               {h}
             </div>
@@ -47,22 +47,22 @@ function FebruaryCalendar() {
           {cells.map((d, i) => (
             <div key={i} className="flex items-center justify-center h-8">
               {d === 27 ? (
-                <div className="relative w-8 h-8 rounded-full bg-[#52613e] flex items-center justify-center">
+                <div className="relative w-8 h-8 rounded-full bg-[#c0392b] flex items-center justify-center">
                   <span className="text-white text-[11px] font-bold">{d}</span>
-                  <span className="absolute -top-1.5 -right-1 text-[9px] text-red-400 leading-none">
+                  <span className="absolute -top-1.5 -right-1 text-[9px] text-[#c0392b] leading-none drop-shadow-sm">
                     ♥
                   </span>
                 </div>
               ) : d ? (
-                <span className="text-[11px] text-[#3b3b30]/65 w-8 h-8 flex items-center justify-center rounded-full">
+                <span className="text-[11px] text-black/60 w-8 h-8 flex items-center justify-center rounded-full">
                   {d}
                 </span>
               ) : null}
             </div>
           ))}
         </div>
-        <p className="text-center text-[10px] text-[#52613e]/60 mt-3 tracking-wider">
-          THỨ SÁU · 27/02/2026 · 10:30
+        <p className="text-center text-[10px] text-black/50 mt-3 tracking-wider">
+          THỨ SÁU · 27/03/2026 · 10:30
         </p>
       </div>
     </div>
@@ -85,7 +85,7 @@ const FloatingHearts = () => (
     ].map(({ left, delay, size }, i) => (
       <span
         key={i}
-        className="absolute bottom-[12%] text-[#c5bcab] select-none"
+        className="absolute bottom-[12%] text-[#c0392b] select-none"
         style={{
           left,
           fontSize: size,
@@ -101,9 +101,9 @@ const FloatingHearts = () => (
 
 const Divider = () => (
   <div className="flex items-center justify-center gap-3 my-1">
-    <div className="h-px w-14 bg-[#c5bcab]" />
-    <span className="text-[#c5bcab] text-sm">♥</span>
-    <div className="h-px w-14 bg-[#c5bcab]" />
+    <div className="h-px w-14 bg-[#c0392b]/30" />
+    <span className="text-[#c0392b] text-sm">♥</span>
+    <div className="h-px w-14 bg-[#c0392b]/30" />
   </div>
 );
 
@@ -138,25 +138,25 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
     <div
       className={`w-full relative ${
         isOpening ? "animate-openFadeSlow" : "animate-openFade"
-      } overflow-hidden rounded-[28px] border border-[#e8e2d8] shadow-card bg-white`}
+      } overflow-hidden rounded-[28px] border border-[#e0e0e0] shadow-card bg-white`}
     >
       {/* ── 1. HERO ─────────────────────────────────────── */}
-      <section className="relative flex flex-col items-center justify-center text-center py-16 px-8 min-h-[420px] overflow-hidden bg-[#fdfcf9]">
+      <section className="relative flex flex-col items-center justify-center text-center py-16 px-8 min-h-[420px] overflow-hidden bg-white">
         <FloatingHearts />
         <img
-          className="absolute w-[min(160px,32vw)] top-0 left-0 opacity-40 pointer-events-none"
+          className="absolute w-[min(160px,32vw)] top-0 left-0 opacity-[0.12] pointer-events-none"
           src="/imgs/thiep-thanh-dat-element_0017_17-20251010160529-gulgj.png"
           aria-hidden
         />
         <img
-          className="absolute w-[min(160px,32vw)] bottom-0 right-0 opacity-40 pointer-events-none"
+          className="absolute w-[min(160px,32vw)] bottom-0 right-0 opacity-[0.12] pointer-events-none"
           src="/imgs/thiep-thanh-dat-element_0019_15-20251010160529-kgwqz.png"
           aria-hidden
         />
-        <p className="relative z-[2] text-[10px] tracking-[5px] uppercase text-[#52613e]/55 mb-5">
+        <p className="relative z-[2] text-[10px] tracking-[5px] uppercase text-black/40 mb-5">
           Fall In Love Wedding
         </p>
-        <h1 className="relative z-[2] font-playfair text-[clamp(32px,6vw,50px)] leading-[1.2] text-[#2d2d22] mb-5">
+        <h1 className="relative z-[2] font-playfair text-[clamp(32px,6vw,50px)] leading-[1.2] text-[#111] mb-5">
           YOU ARE
           <br />
           THE LOVE
@@ -164,46 +164,24 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           OF MY LIFE
         </h1>
         <Divider />
-        <p className="relative z-[2] mt-4 text-[12px] italic text-[#52613e]/65 max-w-[260px] leading-relaxed">
+        <p className="relative z-[2] mt-4 text-[12px] italic text-black/50 max-w-[260px] leading-relaxed font-playfair">
           &ldquo;Khi mây mù tan hết, anh yêu em và cả thế gian đều biết&rdquo;
         </p>
       </section>
 
-      {/* ── 2. INVITATION MESSAGE ───────────────────────── */}
-      <section className="py-9 px-8 text-center bg-[#f5f1ea] border-y border-[#e5ddd0]">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-3">
-          Wedding Invitation
+      {/* ── 3. COUPLE NAMES ─────────────────────────────── */}
+      <section className="py-12 px-6 text-center bg-white">
+        <p className="text-[10px] tracking-[3px] uppercase text-black/40 mb-6">
+          Kính mời tham dự tiệc chung vui của gia đình chúng tôi
         </p>
-        <p className="text-[#52613e] text-[13px] leading-[2]">
-          Kính gửi đến bạn tấm thiệp cưới đầy yêu thương,
-          <br />
-          trân trọng mời bạn đến dự buổi tiệc chung vui
-          <br />
-          cùng gia đình chúng tôi.
-        </p>
-      </section>
-
-      {/* ── 3. PARENTS + COUPLE NAMES ───────────────────── */}
-      <section className="relative py-12 px-6 text-center overflow-hidden">
-        <img
-          className="absolute inset-0 w-full h-full object-cover opacity-55"
-          src="/imgs/thiep-thanh-dat-element_0033_1-20251010160355-v6bgi.png"
-          aria-hidden
-        />
-        <div className="relative z-[2] text-[#52613e] grid gap-6">
-          <p className="text-[10px] tracking-[3px] uppercase text-[#52613e]/60">
-            Kính mời tham dự tiệc chung vui của gia đình chúng tôi
+        <div>
+          <p className="font-vibes text-[clamp(42px,8vw,62px)] leading-[1.1] text-[#111]">
+            Kiều Anh
           </p>
-
-          <div>
-            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">
-              Kiều Anh
-            </p>
-            <Divider />
-            <p className="font-vibes text-[clamp(38px,7.5vw,56px)] leading-[1.1]">
-              Văn Mẫn
-            </p>
-          </div>
+          <Divider />
+          <p className="font-vibes text-[clamp(42px,8vw,62px)] leading-[1.1] text-[#111]">
+            Văn Mẫn
+          </p>
         </div>
       </section>
 
@@ -213,7 +191,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           className="w-full block"
           src="/images/z7561870183143_b9eab5aec3257f07fa33ca3183443b84.jpg"
         />
-        <div className="absolute inset-x-0 bottom-0 px-6 py-10 bg-gradient-to-t from-black/55 to-transparent text-white text-center">
+        <div className="absolute inset-x-0 bottom-0 px-6 py-10 bg-gradient-to-t from-black/65 to-transparent text-white text-center">
           <p className="text-[11px] tracking-[3px] uppercase opacity-85">
             All of me loves
           </p>
@@ -224,14 +202,14 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 5. LOVE QUOTE ────────────────────────────────── */}
-      <section className="py-10 px-8 text-center bg-[#f5f1ea] border-y border-[#e5ddd0]">
-        <p className="font-playfair text-[clamp(16px,3.5vw,21px)] italic text-[#3b3b30] leading-[1.7]">
+      <section className="py-10 px-8 text-center bg-[#f7f7f7] border-y border-[#e0e0e0]">
+        <p className="font-playfair text-[clamp(16px,3.5vw,21px)] italic text-[#111] leading-[1.7]">
           &ldquo;I love three things in this world.
           <br />
           Sun, moon and you.&rdquo;
         </p>
         <Divider />
-        <p className="mt-4 text-[11px] text-[#52613e]/65 leading-[1.8]">
+        <p className="mt-4 text-[11px] text-black/55 leading-[1.8]">
           Có lẽ thế gian này có vô vàn điều tươi đẹp,
           <br />
           nhưng trong lòng em, đẹp nhất vẫn chỉ có anh.
@@ -239,12 +217,12 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 6. COUNTDOWN ────────────────────────────────── */}
-      <section className="py-12 px-6 text-center">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-2">
+      <section className="py-12 px-6 text-center bg-white">
+        <p className="text-[10px] tracking-[4px] uppercase text-black/40 mb-2">
           Đếm ngược đến ngày cưới
         </p>
-        <p className="font-playfair text-[16px] text-[#52613e] mb-7">
-          27 · 02 · 2026
+        <p className="font-playfair text-[16px] text-[#c0392b] mb-7">
+          27 · 03 · 2026
         </p>
         <div className="grid grid-cols-4 gap-2.5">
           {(
@@ -257,12 +235,12 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           ).map(({ value, label }) => (
             <div
               key={label}
-              className="border border-[#e5ddd0] rounded-2xl py-4 px-1 bg-[#faf8f4] grid gap-1"
+              className="border border-[#e0e0e0] rounded-2xl py-4 px-1 bg-white grid gap-1"
             >
-              <strong className="text-[clamp(20px,4.5vw,28px)] text-[#52613e] font-playfair leading-none block">
+              <strong className="text-[clamp(20px,4.5vw,28px)] text-[#c0392b] font-playfair leading-none block">
                 {String(value).padStart(2, "0")}
               </strong>
-              <span className="text-[10px] text-[#52613e]/55 uppercase tracking-wider">
+              <span className="text-[10px] text-black/40 uppercase tracking-wider">
                 {label}
               </span>
             </div>
@@ -271,60 +249,57 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 7. CALENDAR ─────────────────────────────────── */}
-      <section className="py-10 px-6 bg-[#f5f1ea] border-y border-[#e5ddd0]">
-        <p className="text-center text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-6">
+      <section className="py-10 px-6 bg-[#f7f7f7] border-y border-[#e0e0e0]">
+        <p className="text-center text-[10px] tracking-[4px] uppercase text-black/40 mb-6">
           Ngày trọng đại
         </p>
-        <FebruaryCalendar />
+        <MarchCalendar />
       </section>
 
       {/* ── 8. WEDDING DETAILS ──────────────────────────── */}
-      <section className="relative py-12 px-6 text-center overflow-hidden">
-        <img
-          className="absolute inset-0 w-full h-full object-cover opacity-55"
-          src="/imgs/thiep-thanh-dat-element_0033_1-20251010160355-v6bgi.png"
-          aria-hidden
-        />
-        <div className="relative z-[2] text-[#52613e] grid gap-4">
-          <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55">
-            Trân trọng kính mời
-          </p>
-          <p className="text-[12px] leading-relaxed">
-            Đến dự buổi tiệc chung vui cùng gia đình chúng tôi vào lúc
-          </p>
+      <section className="py-12 px-6 text-center bg-white">
+        <p className="text-[10px] tracking-[4px] uppercase text-black/40 mb-3">
+          Trân trọng kính mời
+        </p>
+        <p className="text-[12px] text-black/60 leading-relaxed mb-5">
+          Đến dự buổi tiệc chung vui cùng gia đình chúng tôi vào lúc
+        </p>
 
-          <div className="flex items-center justify-center gap-4">
-            <span className="font-playfair text-[clamp(52px,10vw,72px)] leading-none">
-              27
-            </span>
-            <div className="text-left">
-              <p className="font-playfair text-[16px] font-medium">Tháng 2</p>
-              <p className="text-[13px] text-[#52613e]/80">Năm 2026</p>
-            </div>
-          </div>
-
-          <p className="font-playfair text-[15px] font-medium">
-            10:30 · Thứ Sáu
-          </p>
-          <p className="text-[11px] text-[#52613e]/60">
-            (Nhằm ngày 09 tháng 02 năm Bính Ngọ)
-          </p>
-
-          <Divider />
-
-          <div className="grid gap-2 text-[13px]">
-            <p className="text-[10px] tracking-widest uppercase text-[#52613e]/55">
-              Tổ chức tại
+        <div className="flex items-center justify-center gap-4 mb-3">
+          <span className="font-playfair text-[clamp(52px,10vw,72px)] leading-none text-[#c0392b]">
+            27
+          </span>
+          <div className="text-left">
+            <p className="font-playfair text-[16px] font-medium text-[#111]">
+              Tháng 3
             </p>
-            <strong className="text-[15px]">Ấp 6B</strong>
+            <p className="text-[13px] text-black/60">Năm 2026</p>
           </div>
+        </div>
+
+        <p className="font-playfair text-[15px] font-medium text-[#111]">
+          10:30 · Thứ Sáu
+        </p>
+        <p className="text-[11px] text-black/45 mt-1">
+          (Nhằm ngày 08 tháng 03 năm Bính Ngọ)
+        </p>
+
+        <Divider />
+
+        <div className="grid gap-2 text-[13px] mt-2">
+          <p className="text-[10px] tracking-widest uppercase text-black/40">
+            Tổ chức tại
+          </p>
+          <strong className="text-[16px] text-[#111] font-playfair">
+            Ấp 6B
+          </strong>
         </div>
       </section>
 
       {/* ── 9. STORY PHOTO ──────────────────────────────── */}
       <section className="relative overflow-hidden">
         <img
-          className="w-full block brightness-[0.75]"
+          className="w-full block brightness-[0.7]"
           src="/images/z7561885376753_6c3951304d4cbade3e587bae3c08c2ee.jpg"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-8 text-center">
@@ -340,49 +315,37 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 10. TIMELINE + DRESSCODE ─────────────────────── */}
-      <section className="py-10 px-6 text-center text-[#52613e]">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-7">
+      <section className="py-10 px-6 text-center bg-[#f7f7f7] border-y border-[#e0e0e0]">
+        <p className="text-[10px] tracking-[4px] uppercase text-black/40 mb-7">
           Chương trình
         </p>
         <div className="grid grid-cols-2 gap-6 max-w-xs mx-auto">
           <div className="grid gap-2.5 place-items-center">
             <img
-              className="w-14"
+              className="w-14 opacity-80"
               src="/imgs/thiep-thanh-dat-element_0006_28-20251010165559-ejurh.png"
             />
-            <p className="font-playfair text-[20px] leading-none">10:30</p>
-            <span className="text-[11px] text-[#52613e]/65">Đón khách</span>
+            <p className="font-playfair text-[20px] leading-none text-[#c0392b]">
+              10:30
+            </p>
+            <span className="text-[11px] text-black/55">Đón khách</span>
           </div>
           <div className="grid gap-2.5 place-items-center">
             <img
-              className="w-14"
+              className="w-14 opacity-80"
               src="/imgs/thiep-thanh-dat-element_0005_29-20251010165559-b9jp9.png"
             />
-            <p className="font-playfair text-[20px] leading-none">11:00</p>
-            <span className="text-[11px] text-[#52613e]/65">Đãi khách</span>
-          </div>
-        </div>
-
-        <div className="mt-8 pt-6 border-t border-[#e5ddd0]">
-          <p className="text-[10px] tracking-[3px] uppercase text-[#52613e]/55 mb-3">
-            Dresscode
-          </p>
-          <div className="flex justify-center gap-5">
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="w-7 h-7 rounded-full bg-[#e6dbc8] border border-[#d4c9b5] block" />
-              <span className="text-[10px] text-[#52613e]/60">Kem</span>
-            </div>
-            <div className="flex flex-col items-center gap-1.5">
-              <span className="w-7 h-7 rounded-full bg-[#ccb9a4] border border-[#b8a590] block" />
-              <span className="text-[10px] text-[#52613e]/60">Caramel</span>
-            </div>
+            <p className="font-playfair text-[20px] leading-none text-[#c0392b]">
+              11:00
+            </p>
+            <span className="text-[11px] text-black/55">Đãi khách</span>
           </div>
         </div>
       </section>
 
       {/* ── 11. GALLERY ─────────────────────────────────── */}
-      <section className="py-10 px-4 bg-[#f5f1ea] border-y border-[#e5ddd0]">
-        <p className="text-center text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-6">
+      <section className="py-10 px-4 bg-white">
+        <p className="text-center text-[10px] tracking-[4px] uppercase text-black/40 mb-6">
           Khoảnh Khắc
         </p>
 
@@ -403,7 +366,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           <button
             type="button"
             onClick={goPrev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-black/10 text-[#52613e] flex items-center justify-center"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-black/10 text-[#c0392b] flex items-center justify-center"
             aria-label="Ảnh trước"
           >
             <FiChevronLeft />
@@ -411,7 +374,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           <button
             type="button"
             onClick={goNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-black/10 text-[#52613e] flex items-center justify-center"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-black/10 text-[#c0392b] flex items-center justify-center"
             aria-label="Ảnh sau"
           >
             <FiChevronRight />
@@ -425,7 +388,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
               type="button"
               onClick={() => setCurrentSlide(i)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === currentSlide ? "w-5 bg-[#52613e]" : "w-2 bg-[#c5bcab]"
+                i === currentSlide ? "w-5 bg-[#c0392b]" : "w-2 bg-black/20"
               }`}
               aria-label={`Chuyển đến ảnh ${i + 1}`}
             />
@@ -436,7 +399,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           <button
             type="button"
             onClick={goThumbPrev}
-            className="w-8 h-8 rounded-full bg-white/90 border border-black/10 text-[#52613e] flex items-center justify-center"
+            className="w-8 h-8 rounded-full bg-white border border-[#e0e0e0] text-[#c0392b] flex items-center justify-center"
             aria-label="Thumbnail trước"
           >
             <FiChevronLeft />
@@ -451,7 +414,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
                   onClick={() => setCurrentSlide(realIndex)}
                   className={`rounded-[8px] border-2 transition-all ${
                     realIndex === currentSlide
-                      ? "border-[#52613e]"
+                      ? "border-[#c0392b]"
                       : "border-transparent"
                   }`}
                   aria-label={`Chọn ảnh ${realIndex + 1}`}
@@ -468,7 +431,7 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           <button
             type="button"
             onClick={goThumbNext}
-            className="w-8 h-8 rounded-full bg-white/90 border border-black/10 text-[#52613e] flex items-center justify-center"
+            className="w-8 h-8 rounded-full bg-white border border-[#e0e0e0] text-[#c0392b] flex items-center justify-center"
             aria-label="Thumbnail sau"
           >
             <FiChevronRight />
@@ -477,14 +440,14 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 12. RSVP ────────────────────────────────────── */}
-      <section className="py-12 px-6 bg-white">
-        <p className="text-center text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-2">
+      <section className="py-12 px-6 bg-[#f7f7f7] border-y border-[#e0e0e0]">
+        <p className="text-center text-[10px] tracking-[4px] uppercase text-black/40 mb-2">
           RSVP
         </p>
-        <p className="text-center font-playfair text-[clamp(18px,4vw,22px)] text-[#2d2d22] mb-2">
+        <p className="text-center font-playfair text-[clamp(18px,4vw,22px)] text-[#111] mb-2">
           Xác nhận tham dự
         </p>
-        <p className="text-center text-[12px] text-[#52613e]/65 mb-7 leading-[1.8]">
+        <p className="text-center text-[12px] text-black/50 mb-7 leading-[1.8]">
           Hãy xác nhận sự có mặt của bạn để chúng mình
           <br />
           chuẩn bị đón tiếp chu đáo.
@@ -493,14 +456,14 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
           <input
             type="text"
             placeholder="Họ và tên"
-            className="w-full border border-[#e5ddd0] rounded-xl px-4 py-3 text-[13px] bg-[#faf8f4] text-[#3b3b30] outline-none focus:border-[#52613e] transition-colors placeholder:text-[#52613e]/40"
+            className="w-full border border-[#e0e0e0] rounded-xl px-4 py-3 text-[13px] bg-white text-[#111] outline-none focus:border-[#c0392b] transition-colors placeholder:text-black/30"
           />
-          <select className="w-full border border-[#e5ddd0] rounded-xl px-4 py-3 text-[13px] bg-[#faf8f4] text-[#3b3b30] outline-none focus:border-[#52613e] transition-colors appearance-none">
+          <select className="w-full border border-[#e0e0e0] rounded-xl px-4 py-3 text-[13px] bg-white text-[#111] outline-none focus:border-[#c0392b] transition-colors appearance-none">
             <option value="">Bạn sẽ đến chứ?</option>
             <option value="yes">Có, tôi sẽ tham dự</option>
             <option value="no">Xin lỗi, tôi bận rồi</option>
           </select>
-          <select className="w-full border border-[#e5ddd0] rounded-xl px-4 py-3 text-[13px] bg-[#faf8f4] text-[#3b3b30] outline-none focus:border-[#52613e] transition-colors appearance-none">
+          <select className="w-full border border-[#e0e0e0] rounded-xl px-4 py-3 text-[13px] bg-white text-[#111] outline-none focus:border-[#c0392b] transition-colors appearance-none">
             <option value="">Bạn là khách mời của ai?</option>
             <option value="bride">Khách mời Cô Dâu</option>
             <option value="groom">Khách mời Chú Rể</option>
@@ -510,16 +473,16 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
             min="1"
             max="10"
             placeholder="Số lượng tham dự cùng?"
-            className="w-full border border-[#e5ddd0] rounded-xl px-4 py-3 text-[13px] bg-[#faf8f4] text-[#3b3b30] outline-none focus:border-[#52613e] transition-colors placeholder:text-[#52613e]/40"
+            className="w-full border border-[#e0e0e0] rounded-xl px-4 py-3 text-[13px] bg-white text-[#111] outline-none focus:border-[#c0392b] transition-colors placeholder:text-black/30"
           />
           <textarea
             placeholder="Gửi lời nhắn đến cô dâu chú rể"
             rows={3}
-            className="w-full border border-[#e5ddd0] rounded-xl px-4 py-3 text-[13px] bg-[#faf8f4] text-[#3b3b30] outline-none focus:border-[#52613e] transition-colors resize-none placeholder:text-[#52613e]/40"
+            className="w-full border border-[#e0e0e0] rounded-xl px-4 py-3 text-[13px] bg-white text-[#111] outline-none focus:border-[#c0392b] transition-colors resize-none placeholder:text-black/30"
           />
           <button
             type="button"
-            className="w-full bg-[#52613e] text-white rounded-xl py-3.5 text-[13px] tracking-wide font-medium hover:bg-[#3f4f30] transition-colors"
+            className="w-full bg-[#c0392b] text-white rounded-xl py-3.5 text-[13px] tracking-wide font-medium hover:bg-[#a93226] transition-colors"
           >
             Gửi xác nhận
           </button>
@@ -527,19 +490,19 @@ const InviteContent = ({ phase, gallery }: InviteContentProps) => {
       </section>
 
       {/* ── 13. THANK YOU ───────────────────────────────── */}
-      <section className="py-12 px-8 text-center bg-[#f5f1ea] border-t border-[#e5ddd0]">
-        <p className="text-[10px] tracking-[4px] uppercase text-[#52613e]/55 mb-4">
+      <section className="py-12 px-8 text-center bg-white border-t border-[#e0e0e0]">
+        <p className="text-[10px] tracking-[4px] uppercase text-black/40 mb-4">
           Cảm ơn bạn
         </p>
-        <p className="font-vibes text-[clamp(32px,6vw,46px)] text-[#52613e] mb-4">
+        <p className="font-vibes text-[clamp(32px,6vw,46px)] text-[#c0392b] mb-4">
           Thank you!
         </p>
-        <p className="text-[12px] text-[#52613e]/75 leading-[1.9] max-w-sm mx-auto">
-          Cảm ơn bạn đã dành tình cảm cho chúng mình. Sự hiện diện của bạn chính
-          là món quà ý nghĩa nhất trong ngày trọng đại này.
+        <p className="text-[12px] text-black/55 leading-[1.9] max-w-sm mx-auto">
+          Cảm ơn bạn đã dành tình cảm cho chúng mình. Sự hiện diện của bạn
+          chính là món quà ý nghĩa nhất trong ngày trọng đại này.
         </p>
         <Divider />
-        <p className="mt-4 font-vibes text-[clamp(22px,5vw,30px)] text-[#52613e]/60">
+        <p className="mt-4 font-vibes text-[clamp(22px,5vw,30px)] text-[#111]/60">
           Kiều Anh ♥ Văn Mẫn
         </p>
       </section>

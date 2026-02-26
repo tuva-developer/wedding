@@ -99,13 +99,13 @@ export default function App() {
       </section>
 
       <button
-        className={`fixed right-4 bottom-4 inline-flex items-center justify-center rounded-full border border-[#e9e6df] px-4 py-2 text-xl text-[#52613e] shadow-card ${
-          isPlaying ? 'bg-[#f6f0e5]' : 'bg-white/90'
+        className={`fixed right-4 bottom-4 inline-flex items-center justify-center rounded-full border border-[#e0e0e0] px-4 py-2 text-xl text-[#c0392b] shadow-card ${
+          isPlaying ? 'bg-[#fdf0ef]' : 'bg-white/90'
         }`}
         type="button"
         aria-pressed={isPlaying}
-        aria-label={isPlaying ? 'T?t nh?c' : 'B?t nh?c'}
-        title={isPlaying ? 'T?t nh?c' : 'B?t nh?c'}
+        aria-label={isPlaying ? 'Tắt nhạc' : 'Bật nhạc'}
+        title={isPlaying ? 'Tắt nhạc' : 'Bật nhạc'}
         onClick={() => {
           const audio = audioRef.current
           if (!audio) return
